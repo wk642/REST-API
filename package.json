@@ -1,10 +1,9 @@
 {
   "name": "rest-api",
   "version": "1.0.0",
-  "main": "app.js",
-
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "type": "module",
     "start": "node index.js",
     "server": "nodemon index.js"
   },
@@ -15,7 +14,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/wk642/REST-API/issues"
   },
