@@ -27,6 +27,19 @@ app.get('/books/id/:id', async (req, res) => {
     res.status(500).send('Was not able to GET that book');
   }
 });
+
+// GET book by author
+app.get('/books/author/:author', async (req, res) => {
+  const {author} = req.params;
+  try {
+    const getBookByAuthorResult = await db.query('SELECT * FROM book WHERE author = $1', [author]);
+    res.json(getBookByAuthorResult.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Was not able to GET that book');
+  }
+});
+
 // POST - create a new book
 app.post('/books', async (req, res) => {
   const {isbn, title, author, format} = req.body;
