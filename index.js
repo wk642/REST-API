@@ -1,11 +1,18 @@
-import express from 'express';
-import books from './books.js';
+const express = require('express');
+// const BOOKS = require('./books');
 const app = express();
+const db = require('./db');
 
-// route that uses the hardcoded data
-app.get('/books', (req, res) => {
-  res.json(books);
-})
+// to GET all the books
+app.get('/books', async (req, res) => {
+  try {
+    const result = await db.query('SELECT * FROM book');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Was not able to GET all the books');
+  }
+});
 
 // Start the server
 app.listen(3000, () => {
