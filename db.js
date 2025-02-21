@@ -1,11 +1,11 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'winnie',
-  password: 'books123',
+  user: 'leahputlek',
+  password: '',
   host: 'localhost',
   port: 5432, 
-  database: 'restapidb'
+  database: 'winniesDB'
 });
 
 // connect the database

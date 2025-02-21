@@ -6,6 +6,8 @@ const db = require('./db');
 //adding  json parsing middleware
 app.use(express.json());
 
+//maybe add a test connection message at url /
+
 // to GET all the books
 app.get('/books', async (req, res) => {
   try {
