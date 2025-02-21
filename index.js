@@ -30,6 +30,19 @@ app.post('/books', async (req, res) => {
   }
 });
 
+// PUT - update a book
+app.put('/books/:id', async(req, res) => {
+  const {isbn, title, author, format} = req.body;
+
+  try {
+    const updateResult = await db.query('UPDATE book SET isbn = $1, title = $2, author = $3, format = $4 WHERE id = $5 RETURNING *', [isbn, title, author, format, req.params.id]);
+    res.json(updateResult.rows);
+  } catch(err) {
+    console.log(err);
+    res.send("Unable to use PUT to update");
+  }
+});
+
 // Start the server
 app.listen(3000, () => {
   console.log("Server started on port 3000");
