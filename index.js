@@ -23,7 +23,7 @@ app.post('/books', async (req, res) => {
 
   try{
     const createResult = await db.query('INSERT INTO book (isbn, title, author, format) VALUES ($1, $2, $3, $4) RETURNING *', [isbn, title, author, format]);
-    res.json(createResult.rows[0]);
+    res.json(createResult.rows);
   } catch(err) {
     console.error(err);
     res.send("Unable to use POST to add a new book");
@@ -43,7 +43,21 @@ app.put('/books/:id', async(req, res) => {
   }
 });
 
+//DELETE - deleting book by author
+app.delete('/books/author/:author', async (req, res) => {
+  const {author} = req.params;
+  try {
+    const deleteByAuthorResult = await db.query(
+      'DELETE FROM book WHERE author = $1 RETURNING *',
+      [author]
+    );
+    res.json(deleteByAuthorResult.rows,);
+  } catch (err) {
+    res.status(500).json({ error: 'Error deleting books' });
+  }
+});
+
 // Start the server
 app.listen(3000, () => {
   console.log("Server started on port 3000");
-})
+});
