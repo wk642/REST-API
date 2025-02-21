@@ -1,0 +1,31 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "type": "module",
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wk642/REST-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wk642/REST-API/issues"
+  },
+  "homepage": "https://github.com/wk642/REST-API#readme",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
