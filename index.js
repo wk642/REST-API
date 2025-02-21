@@ -47,16 +47,22 @@ app.put('/books/:id', async(req, res) => {
 app.delete('/books/author/:author', async (req, res) => {
   const {author} = req.params;
   try {
-    const deleteByAuthorResult = await db.query(
-      'DELETE FROM book WHERE author = $1 RETURNING *',
-      [author]
-    );
+    const deleteByAuthorResult = await db.query('DELETE FROM book WHERE author = $1 RETURNING *', [author]);
     res.json(deleteByAuthorResult.rows,);
   } catch (err) {
     res.status(500).json({ error: 'Error deleting books' });
   }
 });
 
+//DELETE - deleting book by id
+app.delete('/books/id/:id', async (req, res) => {
+  try {
+    const deletedByIdResults = await db.query('DELETE FROM book WHERE id = $1 RETURNING *', [req.params.id]);
+    res.json(deletedByIdResults.rows,);
+  } catch (err) {
+    res.status(500).json({ error: 'Error deleting books' });
+  }
+});
 // Start the server
 app.listen(3000, () => {
   console.log("Server started on port 3000");
