@@ -4,10 +4,19 @@ const pool = new Pool({
   user: 'winnie',
   password: 'books123',
   host: 'localhost',
-  port: 5432, // default Postgres port
-  database: 'books'
+  port: 5432, 
+  database: 'restapidb'
 });
 
-module.exports = {
-  query: (text, params) => pool.query(text, params)
-};
+// connect the database
+async function connectDatabase(){
+  await pool.connect();
+}
+
+// run the sql queries
+async function runDatabaseQuery (text, params) {
+  return pool.query(text, params);
+}
+
+module.exports = { connectDatabase, runDatabaseQuery};
+module.exports = pool;
