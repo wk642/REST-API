@@ -36,7 +36,7 @@ app.post('/books', async (req, res) => {
     res.json(createResult.rows);
   } catch(err) {
     console.error(err);
-    res.send("Unable to use POST to add a new book");
+    res.status(500).send("Unable to use POST to add a new book");
   }
 });
 
@@ -49,7 +49,7 @@ app.put('/books/:id', async(req, res) => {
     res.json(updateResult.rows);
   } catch(err) {
     console.log(err);
-    res.send("Unable to use PUT to update");
+    res.status(500).send("Unable to use PUT to update");
   }
 });
 
@@ -85,6 +85,16 @@ app.delete('/books/title/:title', async (req, res) => {
   }
 });
 
+//DELETE - deleting book by author
+app.delete('/books/author/:author', async (req, res) => {
+  const {author} = req.params;
+  try {
+    const deleteByAuthorResult = await db.query('DELETE FROM book WHERE author = $1 RETURNING *', [author]);
+    res.json(deleteByAuthorResult.rows,);
+  } catch (err) {
+    res.status(500).json({ error: 'Error deleting books' });
+  }
+});
 
 // Start the server
 app.listen(3000, () => {
