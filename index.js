@@ -17,6 +17,16 @@ app.get('/books', async (req, res) => {
   }
 });
 
+// GET book by id
+app.get('/books/id/:id', async (req, res) => {
+  try {
+    const getBookByIdResult = await db.query('SELECT * FROM book WHERE id = $1', [req.params.id]);
+    res.json(getBookByIdResult.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Was not able to GET that book');
+  }
+});
 // POST - create a new book
 app.post('/books', async (req, res) => {
   const {isbn, title, author, format} = req.body;
@@ -63,6 +73,19 @@ app.delete('/books/id/:id', async (req, res) => {
     res.status(500).json({ error: 'Error deleting books' });
   }
 });
+
+//DELETE - deleting book by title
+app.delete('/books/title/:title', async (req, res) => {
+  const {title} = req.params;
+  try {
+    const deleteByTitleResult = await db.query('DELETE FROM book WHERE title = $1 RETURNING *', [title]);
+    res.json(deleteByTitleResult.rows,);
+  } catch (err) {
+    res.status(500).json({ error: 'Error deleting books' });
+  }
+});
+
+
 // Start the server
 app.listen(3000, () => {
   console.log("Server started on port 3000");
