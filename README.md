@@ -1,8 +1,15 @@
 # WELCOME TO MY BOOKS REST API PROJECT
 ## Table of contents
-  1. [Prerequisites](#prerequisites)
-  2. [Step by step to clone ](#clone)
-  3. [Step by step to create your local database ](#database)
+  1. [Objectives](#objective)
+  2. [Prerequisites](#prerequisites)
+  3. [Step by step to clone ](#clone)
+  4. [Step by step to create your local database ](#database)
+  5. [What you'll see](#results)
+
+## OBJECTIVE: <a name="objective"></a>
+#### ⭐ Creating a localdatabase
+#### ⭐ linking the localdatabase to perform CRUD operations
+#### ⭐ Testing on Postman   
 ___
 ## Prerequisites <a name="prerequisites"></a>
 ##### ⭐ Postgres - (Creating a local database)  
@@ -40,6 +47,7 @@ ___
    `psql`
 3. Create a database  
    `CREATE DATABASE your_database_name`
+   * keep this window open. you will come back to this in a few steps
 4. Open up the folder you cloned into VSCode / your text editor. 
 5. Open up db.js
 6. On line 3-9 you will see this, please update the info accordingly: 
@@ -48,4 +56,49 @@ ___
    - [ ] On line 5 change user to your password  
     `password: 'YOUR_PASSWORD', `
    - [ ] On line 8 change user to your username  
-    `database: 'YOUR_DATABASE', `
+    `database: 'YOUR_DATABASE', `  
+7. Locate the full path for the file createTable.sql  
+  i. In your vsCode, inside the terminal: 
+  `pwd`  
+  ii. copy the path
+8. in your postgres where in your database   
+  `\i YOUR_PATH/db/createTable.sql`
+ 
+ Now you would be able to run the project with `npm run start `
+
+___
+## What you wills see <a name="results"></a>
+When running `localhost:3000`
+<img src="./assets/images/README/localhost3000.png" width=100%/>  
+___
+in Postman  
+___ 
+GET : (READ)
+<img src="./assets/images/README/get.png" width=100%>
+
+GET by id: 
+<img src="./assets/images/README/getById.png" width=100%>
+
+GET by author: 
+<img src="./assets/images/README/getByAuthor.png" width=100%>
+___
+POST (CREATE)
+|POST| AFTER POST|
+|-|-|
+|<img src="./assets/images/README/post.png" width = 100%>|<img src="./assets/images/README/afterPost.png" width=84%>|
+___
+PUT (UPDATE)
+|PUT| AFTER PUT|
+|-|-|
+|<img src="./assets/images/README/put.png" width = 100%>|<img src="./assets/images/README/afterPut.png" width=75%>|
+___
+DELETE
+___
+|DELETE by id| AFTER DELETE by id|
+|-|-|
+|<img src="./assets/images/README/deleteById.png" width = 100%>|<img src="./assets/images/README/afterDeleteById.png" width=82%>|
+___
+|DELETE by title| AFTER DELETE by title|
+|-|-|
+|<img src="./assets/images/README/deleteByTitle.png" width = 100%>|<img src="./assets/images/README/afterDeleteByTitle.png" width=90%>|
+___
