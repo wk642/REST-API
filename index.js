@@ -67,15 +67,15 @@ app.put('/books/:id', async(req, res) => {
 });
 
 //DELETE - deleting book by author
-app.delete('/books/author/:author', async (req, res) => {
-  const {author} = req.params;
-  try {
-    const deleteByAuthorResult = await db.query('DELETE FROM book WHERE author = $1 RETURNING *', [author]);
-    res.json(deleteByAuthorResult.rows,);
-  } catch (err) {
-    res.status(500).json({ error: 'Error deleting books' });
-  }
-});
+// app.delete('/books/author/:author', async (req, res) => {
+//   const {author} = req.params;
+//   try {
+//     const deleteByAuthorResult = await db.query('DELETE FROM book WHERE author = $1 RETURNING *', [author]);
+//     res.json(deleteByAuthorResult.rows,);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Error deleting books' });
+//   }
+// });
 
 //DELETE - deleting book by id
 app.delete('/books/id/:id', async (req, res) => {
@@ -93,17 +93,6 @@ app.delete('/books/title/:title', async (req, res) => {
   try {
     const deleteByTitleResult = await db.query('DELETE FROM book WHERE title = $1 RETURNING *', [title]);
     res.json(deleteByTitleResult.rows,);
-  } catch (err) {
-    res.status(500).json({ error: 'Error deleting books' });
-  }
-});
-
-//DELETE - deleting book by author
-app.delete('/books/author/:author', async (req, res) => {
-  const {author} = req.params;
-  try {
-    const deleteByAuthorResult = await db.query('DELETE FROM book WHERE author = $1 RETURNING *', [author]);
-    res.json(deleteByAuthorResult.rows,);
   } catch (err) {
     res.status(500).json({ error: 'Error deleting books' });
   }
