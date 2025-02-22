@@ -102,3 +102,5 @@ ___
 |-|-|
 |<img src="./assets/images/README/deleteByTitle.png" width = 100%>|<img src="./assets/images/README/afterDeleteByTitle.png" width=90%>|
 ___
+
+Thank you for getting to the bottom of this. Always open to learn and grow. Please send in any PR or issues to support my growth!
