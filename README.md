@@ -30,11 +30,22 @@ ___
     // if this not blank or pointing to yours
     git remote remove origin
     // you can add yours back
-    ```
+    
  5. Reminder: install express
 
 ***
 ## Step by step to create your local database <a name="database"></a>
-   ```
-   
-   ```
+1. Goto your Terminal
+2. Go into postgresss  
+   `psql`
+3. Create a database  
+   `CREATE DATABASE your_database_name`
+4. Open up the folder you cloned into VSCode / your text editor. 
+5. Open up db.js
+6. On line 3-9 you will see this, please update the info accordingly: 
+   - [ ] On line 4 change user to your username  
+    `user: 'YOUR_USERNAME', `
+   - [ ] On line 5 change user to your password  
+    `password: 'YOUR_PASSWORD', `
+   - [ ] On line 8 change user to your username  
+    `database: 'YOUR_DATABASE', `
