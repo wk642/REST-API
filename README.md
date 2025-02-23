@@ -8,7 +8,7 @@
 
 ## OBJECTIVE: <a name="objective"></a>
 #### ⭐ Creating a localdatabase
-#### ⭐ linking the localdatabase to perform CRUD operations
+#### ⭐ Linking the localdatabase to perform CRUD operations
 #### ⭐ Testing on Postman   
 ___
 ## Prerequisites <a name="prerequisites"></a>
@@ -67,7 +67,7 @@ ___
  Now you would be able to run the project with `npm run start `
 
 ___
-## What you wills see <a name="results"></a>
+## What will you see <a name="results"></a>
 When running `localhost:3000`
 <img src="./assets/images/README/localhost3000.png" width=100%/>  
 ___
