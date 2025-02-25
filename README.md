@@ -7,7 +7,7 @@
   5. [What you'll see](#results)
 
 ## OBJECTIVE: <a name="objective"></a>
-#### ⭐ Creating a localdatabase
+#### ⭐ Creating a local database
 #### ⭐ Linking the localdatabase to perform CRUD operations
 #### ⭐ Testing on Postman   
 ___
